@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from stu_app.views import home_view, about_home, contact, student, teacher, course, dept
+from teacher_app.views import teach
+from course_app.views import course
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("home/", home_view),
@@ -25,6 +28,8 @@ urlpatterns = [
     path("student/", student),
     path("teacher/", teacher),
     path("course/", course),
-    path("dept/", dept)
+    path("dept/", dept),
+    path("teach/", teach),
+    path("crs/", course)
 
 ]
