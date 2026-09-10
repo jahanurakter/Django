@@ -24,8 +24,8 @@ from forapp.views import contact_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("for/", home_view),
-    path("about/", my_view),
-    path("service/", service_view),
-    path("contact/", contact_view),
+    path("", home_view, name = "home"),
+    path("about/", my_view, name = "about" ),
+    path("service/", service_view, name = "service"),
+    path("contact/", contact_view, name = "contact"),
 ]
