@@ -1,5 +1,5 @@
 """
-URL configuration for stu_project project.
+URL configuration for template_project project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/6.1/topics/http/urls/
@@ -16,22 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from stu_app.views import home_view, about_home, contact, student, teacher, course, dept
-from teacher_app.views import teach
-from course_app.views import course
-from false_app.views import false
+from forapp.views import home_view
+from forapp.views import my_view
+from forapp.views import service_view
+from forapp.views import contact_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("home/", home_view),
-    path("about/", about_home),
-    path("contact/", contact),
-    path("student/", student),
-    path("teacher/", teacher),
-    path("course/", course),
-    path("dept/", dept),
-    path("teach/", teach),
-    path("crs/", course),
-    path("false/", false)
-
+    path("for/", home_view),
+    path("about/", my_view),
+    path("service/", service_view),
+    path("contact/", contact_view),
 ]
