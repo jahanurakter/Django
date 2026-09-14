@@ -1,0 +1,16 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    Student List Page
+{% endblock title %}
+    
+{% block body %}
+<h3>This is Student List Page</h3>    
+   <p>{{list}}</p>
+   <tr>{{stu.info.id}}</tr>
+   <tr>{{stu.info.name}}</tr>
+   <tr>{{stu.info.dept}}</tr>
+   <tr>{{stu.info.batch}}</tr>
+   <tr>{{info.gpa}}</tr>
+{% endblock body %}
