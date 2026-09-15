@@ -1,5 +1,5 @@
 """
-URL configuration for project project.
+URL configuration for sixpro project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/6.1/topics/http/urls/
@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from students.views import home_view
+from userapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", home_view),
-    ]
+    path("", home_view, name="Home"),
+    path('registration/', reg_view, name="Registration" ),
+]
