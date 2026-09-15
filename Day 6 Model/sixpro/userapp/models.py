@@ -1,7 +1,7 @@
 from django.db import models
 
 class info(models.Model):
-    name=models.CharField(max_length=180)
+    name=models.CharField(max_length=180,verbose_name="Student Name")
     address=models.TextField()
     email=models.EmailField()
     age=models.PositiveIntegerField()
