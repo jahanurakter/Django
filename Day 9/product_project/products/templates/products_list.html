@@ -1,0 +1,85 @@
+{% extends 'master/layout.html' %}
+
+
+{% block title %}
+    Products List
+{% endblock title %}
+    
+
+{% block body %}
+    <h2>All Products List</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Production Date</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+ 
+        {% for product in products_list %}
+        <tr>
+        <td>
+            
+            {% if product.image %}
+                <img src="/{{product.image}}" width="50 px" alt="">
+            {% else %}
+                NO Preview
+            {% endif %}
+            
+        </td>
+            <td>{{product.name}}</td>
+            <td>{{product.production_date}}</td>
+            <td>{{product.price}}</td>
+        </tr>
+        {% endfor %}
+        
+    </tbody>
+</table>
+
+    <h2>Filter List</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+  
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+ 
+        {% for product in filter_list %}
+        <tr>
+            <td></td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+        </tr>
+        {% endfor %}
+        
+    </tbody>
+</table>
+<h2>Mouse List</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+  
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+ 
+        {% for product in mouse_list %}
+        <tr>
+            <td></td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+        </tr>
+        {% endfor %}
+        
+    </tbody>
+</table>
+{% endblock body %}
+    
