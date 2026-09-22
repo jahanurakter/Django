@@ -2,12 +2,12 @@
 
 
 {% block title %}
-    Add Prodcuts
+    Delete Prodcuts
 {% endblock title %}
 
 
 {% block body %}
-<h1>Add New Product Info</h1>
+<h1>Delete Product Info</h1>
 <div>
     <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
@@ -29,7 +29,7 @@
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Image</label>
-    <input type="file" name="image" class="form-control" id="exampleInputEmail1" placeholder="Enter product image">
+    <input type="image" name="image" class="form-control" id="exampleInputEmail1" placeholder="Enter product image">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
     </form>

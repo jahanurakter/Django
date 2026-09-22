@@ -39,6 +39,36 @@ def add_product(req):
 
     return render(req, "add_product.html")
 
+def delete_view(req, p_id):
+     
+     ProductModel.objects.get(id = p_id).delete()
+
+     return redirect("products_list")
+
+def update_view(req, p_id):
+    pro_data= ProductModel.objects.get(id = p_id)
+    if req.method == "POST":
+        name = req.POST.get('name')
+        description = req.POST.get("description")
+        date = req.POST.get("date")
+        price = req.POST.get("price")
+        image = req.FILES.get("image")
+
+        pro_data.name = name
+        pro_data.description = description
+        pro_data.date = date
+        pro_data.price = price
+        if image:
+            pro_data.image = image
+
+        pro_data.save()
+
+        return redirect("products_list")
+    
+    context = {
+         "pro_data":pro_data
+    }
+    return render(req, "update_product.html",context)
 
 
     
