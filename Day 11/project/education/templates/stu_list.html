@@ -1,0 +1,49 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    Student Information
+{% endblock title %}
+
+{% block content %}
+    <h2 class="text-center">Student List</h2>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Admission Date</th>
+            <th>Course Name</th>
+            <th>Course Fee</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                
+            {% for data in stu_data %}
+            <tr>
+                <td>
+                    
+                    {% if data.stu_image %}
+                        <img src="/{{data.stu_image}}" width="50px" alt="">
+                        {% else %}
+                        No Preview
+                    {% endif %}
+                        
+                </td>
+                <td>{{data.stu_name}}</td>
+                <td>{{data.admission_date}}</td>
+                <td>{{data.course_name}}</td>
+                <td>{{data.course_fee}}</td>
+                <td><a href="{% url 'delete_student' data.id %}">Delete</a></td>
+                <td><a href="{% url 'student_update' data.id %}">Edit</a></td>
+            <tr>
+            {% endfor %}
+
+            
+        </tbody>
+    </table>
+{% endblock content %}
+    
+    

@@ -1,0 +1,42 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    Product List
+{% endblock title %}
+
+
+{% block content %}
+    <h2>Welcome to Our Page</h2>
+<table class="table table-striped">
+    <thead>
+        <th>Name</th>
+        <th>Product Description</th>
+        <th>Product Price</th>
+        <th>Product Date</th>
+        <th>Image</th>
+        
+        
+    </thead>
+    <tbody>
+        
+        {% for data in p_id %}
+            <td>{{data.name}}</td>
+            <td>{{data.description}}</td>
+            <td>{{data.price}}</td>
+            <td>{{data.product_date}}</td>
+            <td>
+             
+             {% if data.image %}
+                <img src="/{{data.image}}" width="50px" alt="">
+                {% else %}
+                No Preview
+             {% endif %}
+                
+            </td>
+        {% endfor %}
+            
+    </tbody>
+</table>
+
+{% endblock content %}

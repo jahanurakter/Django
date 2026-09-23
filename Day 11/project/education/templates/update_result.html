@@ -1,0 +1,32 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    Result Update
+{% endblock title %}
+
+
+{% block content %}
+    <h2 class="text-center">Result Update</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Student Name</label>
+    <input type="text" name="name" value="{{data.stu_name}}" class="form-control" id="exampleInputEmail1" placeholder="Enter Student Name"> 
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Marks</label>
+    <input type="number" name="marks" value={{data.marks}} class="form-control" id="exampleInputEmail1" placeholder="Enter Marks"> 
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Grade</label>
+    <input type="text" name="grade" value="{{data.grade}}" class="form-control" id="exampleInputEmail1" placeholder="Grade"> 
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>   
+{% endblock content %}
+    
+    
