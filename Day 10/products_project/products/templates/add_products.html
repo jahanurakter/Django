@@ -11,12 +11,12 @@
 <form method="POST" enctype="multipart/form-data">
   {% csrf_token %}
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Home</label>
-    <input type="text" name="home" class="form-control" id="exampleInputPassword1" placeholder="Enter your name">
+    <label for="exampleInputPassword1" class="form-label">Name</label>
+    <input type="text" name="name" class="form-control" id="exampleInputPassword1" placeholder="Enter your name">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Product Description</label>
-    <textarea name="description" class="form-control" id="exampleInputPassword1"></textarea>
+    <textarea name="description" class="form-control" id="exampleInputPassword1" placeholder="Product Description"></textarea>
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Price</label>
@@ -29,6 +29,15 @@
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Image</label>
     <input type="file" name="image" class="form-control" id="exampleInputPassword1" placeholder="Enter your image">
+  </div>
+  <div class="mb-3">
+  <label for="exampleInputPassword1" class="form-label">Product Type</label>
+  <select class="form-select" name="product_type" aria-label="Default select example">
+  <option selected>Product Type</option>
+  <option value="fruits">Fruits</option>
+  <option value="grocery">Grocery</option>
+  <option value="fashion">Fashion</option>
+  </select>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

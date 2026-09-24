@@ -1,0 +1,57 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    Add Products
+{% endblock title %}
+
+
+{% block content %}
+    <h2>Add Products</h2>
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Name</label>
+    <input type="text" name="name" value="{{p_data.name}}" class="form-control" id="exampleInputPassword1" placeholder="Enter your name">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Product Description</label>
+    <textarea name="description" class="form-control" id="exampleInputPassword1" placeholder="Product Description">{{p_data.description}}</textarea>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Price</label>
+    <input type="number" name="price" value="{{p_data.price}}" class="form-control" id="exampleInputPassword1" placeholder="Product price">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Product Date</label>
+    <input type="date" name="date" value="{{p_data.product_date|date:'Y-m-d'}}" class="form-control" id="exampleInputPassword1" placeholder="Product Date">
+  </div>
+  <div class="mb-3">
+<label for="exampleInputPassword1" class="form-label">Image</label>
+    <input type="file" name="image" class="form-control" id="exampleInputPassword1" placeholder="Enter your image">
+     {% if p_data.image %}
+        <img src="/{{p_data.image}}" width="50px" alt=""/>
+        {% else %}
+        No Preview
+    {% endif %}
+</div>
+<div class="mb-3">
+<label for="exampleInputPassword1" class="form-label">Product Type</label>
+  <select class="form-select" name="product_type" aria-label="Default select example">
+  <option value="fruits"
+  {% if p_data.product_type == 'fruits' %}
+    selected
+  {% endif %}>Fruits</option>
+  <option value="grocery"
+  {% if p_data.product_type == 'grocery' %}
+    selected
+  {% endif %}>Grocery</option>
+  <option value="fashion"
+  {% if p_data.product_type == 'fashion' %}
+    selected
+  {% endif %}>Fashion</option>
+  </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock content %}
