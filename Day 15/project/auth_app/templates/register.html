@@ -1,0 +1,47 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    Register View
+{% endblock title %}
+
+
+{% block body %}
+    <h3 class="text-center">Register Page</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">User Name</label>
+    <input type="text" name="username" class="form-control" id="exampleInputPassword1" placeholder="Enter your name">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Email</label>
+    <input type="email" name="email" class="form-control" id="exampleInputPassword1" placeholder="Enter your email">
+  </div>
+  <div class="mb-3">
+    <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Image</label>
+    <input type="file" name="image" class="form-control" id="exampleInputPassword1" placeholder="Enter your image">
+  </div>
+    <label for="exampleInputPassword1" class="form-label">User Type</label>
+    <select name="user_type" class="form-select" aria-label="Default select example">
+  <option value="Fruits">Fruits</option>
+  <option value="Grocery">Grocery</option>
+  <option value="Fashion">Fashion</option>
+</select>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+    <input type="password" name="conf_password" class="form-control" id="exampleInputPassword1" placeholder="Confirm your password">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Register</button>
+  <a href="{% url 'login_view' %}">Already have an account?</a>
+</form>
+{% endblock body %}
+    
+    

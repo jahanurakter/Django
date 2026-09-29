@@ -1,0 +1,33 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    Product add
+{% endblock title %}
+
+
+{% block body %}
+    <h3 class="text-center">Product Add</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Name</label>
+    <input type="text" name="name" class="form-control" id="exampleInputPassword1" placeholder="Enter your name">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Phone</label>
+    <input type="text" name="phone" class="form-control" id="exampleInputPassword1" placeholder="Enter your email">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Price</label>
+    <input type="number" name="price" class="form-control" id="exampleInputPassword1" placeholder="Enter your email">
+  </div>
+  <button type="submit" class="btn btn-primary">Add Product</button>
+</form>
+{% endblock body %}
+
+    
+
+
+
+    
