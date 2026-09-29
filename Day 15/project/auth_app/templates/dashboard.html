@@ -1,0 +1,15 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    Dashboard View
+{% endblock title %}
+
+
+{% block body %}
+    <h3>{{request.user.username}}</h3>
+    
+    <a class="btn btn-danger" href="{% url 'logout_view' %}">Logout</a>
+{% endblock body %}
+    
+    

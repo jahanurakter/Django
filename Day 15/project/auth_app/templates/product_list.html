@@ -1,0 +1,40 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    Product List
+{% endblock title %}
+
+
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>SL No.</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Price</th>
+                <th>Created Time</th>
+                <th>Updated Time</th>
+
+            </tr>
+            <tbody>
+                
+                {% for x in data %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{x.name}}</td>
+                        <td>{{x.phone}}</td>
+                        <td>{{x.price}}</td>
+                        <td>{{x.created_at}}</td>
+                        <td>{{x.updated_at}}</td>
+                        
+                    </tr>
+                {% endfor %}
+                    
+            </tbody>
+        </thead>
+    </table>
+{% endblock body %}
+    
+    

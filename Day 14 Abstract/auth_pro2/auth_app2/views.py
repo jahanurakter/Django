@@ -38,6 +38,7 @@ def login_view(req):
             print("Invalid Authentication")
 
     return render(req,'login.html')
+    
 @login_required
 def dashboard_view(req):
     return render(req, 'dashboard.html')
