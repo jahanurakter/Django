@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from django.contrib import messages ##########
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from project.models import *
@@ -25,7 +26,7 @@ def register_view(req):
 
         user_exist=UserModel.objects.filter(username=username).exists()
         if user_exist:
-            print('User Already Exist')
+            messages.warning(req, "User Already Exist") ##########
             return redirect('register_view')
         if password == conf_password:
             UserModel.objects.create_user(

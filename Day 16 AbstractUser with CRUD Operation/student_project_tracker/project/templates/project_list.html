@@ -11,7 +11,9 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                <th>Sl No</th>
                 <th>Project Name</th>
+                <th>Project Image</th>
                 <th>Project Status</th>
                 <th>Created By</th>
             </tr>
@@ -20,11 +22,19 @@
             
             {% for data in project_data %}
                 <tr>
+                    <td>{{forloop.counter}}</td>
                     <td>{{data.project_name}}</td>
+                    <td>
+                        {% if project_image %}
+                            <img src="{{project_image.url}}" width="50px" alt="">
+                        {% else %}
+                            No Preview
+                        {% endif %}
+                    </td>
                     <td>{{data.project_status}}</td>
                     <td>{{data.created_by}}</td>
-                    <td><a href="{% url 'delete_project' data.id %}">Delete</a></td>
-                    <td><a href="{% url 'update_project' data.id %}">Update</a></td>
+                    <td><a class="btn btn-danger" href="{% url 'delete_project' data.id %}">Delete</a></td>
+                    <td><a class="btn btn-success" href="{% url 'update_project' data.id %}">Update</a></td>
                 </tr>
             {% endfor %}
                 

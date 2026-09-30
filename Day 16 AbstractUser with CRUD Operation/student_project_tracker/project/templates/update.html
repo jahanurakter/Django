@@ -28,7 +28,7 @@
     <input type="file" name="project_image" class="form-control" placeholder="Enter Project Image">
     
     {% if project_data.project_image %}
-        <img src="/{{project_data.project_image}}" width="50px" alt="">
+        <img src="{{project_data.project_image.url}}" width="50px" alt="">
         {% else %}
         No Preview
     {% endif %}
