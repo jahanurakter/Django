@@ -1,0 +1,33 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    projectlist
+{% endblock title %}
+    
+
+{% block content %}
+    <h1 class="text-center">Project List</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Project Name</th>
+                <th>Project Status</th>
+                <th>Created By</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for data in project_data %}
+                <tr>
+                    <td>{{data.project_name}}</td>
+                    <td>{{data.project_status}}</td>
+                    <td>{{data.created_by}}</td>
+                    <td><a href="{% url 'delete_project' data.id %}">Delete</a></td>
+                    <td><a href="{% url 'update_project' data.id %}">Update</a></td>
+                </tr>
+            {% endfor %}
+                
+        </tbody>
+    </table>
+{% endblock content %}
