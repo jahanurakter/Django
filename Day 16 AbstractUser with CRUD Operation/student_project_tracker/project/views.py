@@ -12,6 +12,8 @@ def login_view(req):
         if user:
             login(req, user)
             return redirect('dashboard_view')
+        else:
+            messages.warning(req, "Invalid Credentials")
         
     return render(req,'login.html')
 
@@ -68,7 +70,7 @@ def add_project(req):
     return render (req, 'add_project.html')
 
 def project_list(req):
-    project_data=ProjectModel.objects.filter(created_by = req.user)
+    project_data=ProjectModel.objects.filter(created_by = req.user)         #jar jar project se se dekhte pabe ti filter use kora
 
     context={
         'project_data':project_data
