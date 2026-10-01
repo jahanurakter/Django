@@ -1,0 +1,39 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+  register
+{% endblock title %}
+  
+{% block content %}
+      {% include 'master/messages.html' %}
+      <h3>Register</h3>
+   <form method="POST">
+    {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">User Name</label>
+    <input type="text" name="username" class="form-control" placeholder="Enter user name">
+  </div>
+ <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Email</label>
+    <input type="email" name="email" class="form-control" placeholder="Enter user email">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">User Type</label>
+    <select class="form-select" name="user_type" aria-label="Default select example">
+  <option value="Vendor">Vendor</option>
+  <option value="Customer">Customer</option>
+</select>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" placeholder="Enter password">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+    <input type="password" name="conf_password" class="form-control" placeholder="Enter name">
+  </div>
+  <button type="submit" class="btn btn-primary">Register</button>
+  <a href="{% url 'login_view' %}">Already have an account ?</a>
+</form>
+ {% endblock content %}

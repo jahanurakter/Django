@@ -1,0 +1,26 @@
+{% extends 'master/base.html' %}
+
+{% block title %}
+  loginpage
+{% endblock title %}
+ 
+ {% block content %}
+    
+      {% include 'master/messages.html' %}
+    <h3>Enter Login Info</h3>
+   <form method="POST">
+    {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">User Name</label>
+    <input type="text" name="username" class="form-control" placeholder="Enter user name">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" placeholder="Enter password">
+  </div>
+
+  <button type="submit" class="btn btn-success">Login</button>
+  <a href="{% url 'register_view' %}">Don't have any account?</a>
+</form>
+
+{% endblock content %}
