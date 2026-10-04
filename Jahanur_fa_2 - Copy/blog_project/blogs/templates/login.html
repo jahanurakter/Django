@@ -1,0 +1,30 @@
+{% extends 'master/base.html' %}
+
+
+
+{% block title %}
+    register
+{% endblock title %}
+
+
+{% block content %}
+    {% include 'master/messages.html' %}  
+<div>
+    <form method='POST' enctype="multipart/form-data">
+    <h3>Login Here</h3>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">User Name</label>
+    <input type="text" name='username' class="form-control" placeholder="Enter your username">
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name='password' class="form-control" placeholder="Enter your password">
+  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
+<a href="{% url 'register_view' %}">Don't have any account?</a>
+</form>
+</div>  
+
+{% endblock content %}
+    
+    

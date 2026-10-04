@@ -1,0 +1,51 @@
+{% extends 'master/base.html' %}
+
+
+
+{% block title %}
+    blogpost
+{% endblock title %}
+
+
+{% block content %}  
+<h2>Blog List Here</h2>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th>Sl No</th>
+            <th>Blog Image</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Published Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for data in blog_data %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td> 
+                        {% if data.blog_image %}
+                            <img src="{{data.blog_image.url}}" width="50px" alt="">
+                        {% else %}
+                            No Preview
+                        {% endif %}</td>
+                    <td>{{data.title}}</td>
+                    <td>{{data.author_name}}</td>
+                    <td>{{data.publish_date|date:"Y-m-d"}}</td>
+                    <td>
+                        <a href="{% url 'update_view' data.id %}">Update</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'delete_view' data.id %}">Delete</a></td>
+                </tr>
+            {% endfor %}
+                
+        </tbody>
+    </table>
+</div> 
+
+{% endblock content %}
+    
+    

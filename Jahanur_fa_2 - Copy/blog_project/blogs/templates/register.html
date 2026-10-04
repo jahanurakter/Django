@@ -1,0 +1,43 @@
+{% extends 'master/base.html' %}
+
+
+
+{% block title %}
+    register
+{% endblock title %}
+
+
+{% block content %}
+    {% include 'master/messages.html' %}  
+<div>
+    <form method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+    <h3>Register Your Information</h3>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">User Name</label>
+    <input type="text" name='username' class="form-control" placeholder="Enter your username">
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Full Name</label>
+    <input type="text" name='full_name' class="form-control" placeholder="Enter your fullname">
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Email</label>
+    <input type="email" name='email' class="form-control" placeholder="Enter your email">
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name='password' class="form-control" placeholder="Enter your password">
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+    <input type="password" name='conf_password' class="form-control" placeholder="Enter again password">
+  </div>
+  <button type="submit" class="btn btn-primary">Add Register</button>
+<a href="{% url 'login_view' %}">Already have an account?</a>
+</form>
+</div>  
+
+{% endblock content %}
+    
+    
