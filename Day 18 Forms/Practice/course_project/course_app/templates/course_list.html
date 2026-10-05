@@ -31,6 +31,7 @@
                     <td>{{data.category}}</td>
                     <td>{{data.course_fee}}</td>
                     <td><a href="{% url 'update_course' data.id %}">Update</a></td>
+                    <td><a href="{% url 'delete_view' data.id %}">Delete</a></td>
                 </tr>
 
             {% endfor %}

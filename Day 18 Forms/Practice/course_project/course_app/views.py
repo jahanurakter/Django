@@ -37,3 +37,8 @@ def update_course(req, id):
         'course_data':course_data
     }
     return render(req, 'update_course.html', context)
+
+def delete_view(req, id):
+    CourseModel.objects.get(id=id).delete()
+    return redirect('course_list')
+    
