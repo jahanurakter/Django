@@ -1,0 +1,12 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    welcomeblog
+{% endblock title %}
+
+
+{% block content %}
+    <h3>Welcome{{request.user.author_name}}</h3>
+    <a class="btn btn-success" href="{% url 'add_blog' %}">Add Blog</a>
+{% endblock content %}

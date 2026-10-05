@@ -1,0 +1,22 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    addcourse
+{% endblock title %}
+
+
+{% block content %}
+    <h3>Add Course Here</h3>
+    <div>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{course_data.as_p}}
+
+    <button type="submit" class="btn btn-primary">Add Course</button>
+    </form> 
+    </div>
+
+{% endblock content %}
+    
+    

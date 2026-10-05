@@ -1,0 +1,18 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    addblog
+{% endblock title %}
+
+
+{% block content %}
+    <h3>Update Blog Post</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form_data.as_p}}
+  <button type="submit" class="btn btn-primary">Update Blog</button>
+</form>
+{% endblock content %}
+    
+    

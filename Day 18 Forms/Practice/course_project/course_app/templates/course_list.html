@@ -1,0 +1,42 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    courselist
+{% endblock title %}
+
+{% block content %}
+<a href="{% url 'add_course' %}" class="btn btn-success">Add Course</a>
+    <h3>Course List</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>SL No</th>
+                <th>Course Name</th>
+                <th>Image</th>
+                <th>Category</th>
+                <th>Fee</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for data in course_data %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{data.course_name}}</td>
+                    <td>{{data.description}}</td>
+                    <td><img src="{{data.course_image}}" width="50px"></td>
+                    
+                    <td>{{data.category}}</td>
+                    <td>{{data.course_fee}}</td>
+                    <td><a href="{% url 'update_course' data.id %}">Update</a></td>
+                </tr>
+
+            {% endfor %}
+                
+        </tbody>
+    </table>
+{% endblock content %}
+    
+    
