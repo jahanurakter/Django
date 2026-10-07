@@ -1,0 +1,18 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    updatecourse
+{% endblock title %}
+    
+
+{% block content %}
+    <div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{stu_crs.as_p}}
+  <button type="submit" class="btn btn-primary">Update Course</button>
+</form>
+    </div>
+{% endblock content %}
+    

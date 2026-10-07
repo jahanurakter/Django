@@ -1,0 +1,15 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    home
+{% endblock title %}
+    
+
+{% block content %}
+    <div>
+        <h3>Welcome Home{{request.user.stu_name}}</h3>
+        <a href="{% url 'stu_course' %}" class="btn btn-success">Add Course</a>
+    </div>
+{% endblock content %}
+    

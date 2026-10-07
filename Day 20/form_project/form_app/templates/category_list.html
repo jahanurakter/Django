@@ -1,0 +1,34 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    home
+{% endblock title %}
+    
+
+{% block content %}
+<a href="{% url 'category_add' %}" class="btn btn-success">Add Category</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Sl No</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for x in category_data %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{x.name}}</td>
+                <td><a href="{% url 'category_update' x.id %}">Edit</a></td>
+                <td><a href="{% url 'category_delete' x.id %}">Delete</a></td>
+            </tr>
+                
+            {% endfor %}
+                
+        </tbody>
+    </table>
+{% endblock content %}
+    

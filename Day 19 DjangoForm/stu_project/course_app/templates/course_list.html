@@ -1,0 +1,38 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    course_list
+{% endblock title %}
+    
+
+{% block body %}
+    <table class="table table-striped">
+    <thead>
+        <tr><th>Sl No</th>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Roll</th>
+            <th>Image</th>
+            <th>select</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+{% for x in stu_crs %}
+<tr><td>{{forloop.counter}}</td>
+    <td>{{x.stu_name}}</td>
+    <td>{{x.stu_class}}</td>
+    <td>{{x.stu_roll}}</td>
+    <td><img src="{{x.stu_image.url}}" width="50px" alt=""></td>
+    <td>{{x.select}}</td>
+    <td><a href="{% url 'update_course' x.id %}">Update</a></td>
+</tr>
+    
+{% endfor %}
+    </tbody>
+    </table>
+
+{% endblock body %}
+    

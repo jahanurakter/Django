@@ -1,0 +1,18 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    updatecategory
+{% endblock title %}
+    
+
+{% block content %}
+    <h3>Category Update</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{form_data.as_p}}
+        
+        <button type="submit" class="btn btn-success">Update Category</button>
+    </form>
+{% endblock content %}
+    
