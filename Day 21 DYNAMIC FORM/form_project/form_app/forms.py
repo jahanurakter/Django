@@ -16,3 +16,10 @@ class ProductForm (forms.ModelForm):
           model = ProductModel
           fields = '__all__'
           exclude = ['created_by', 'total_amount']
+
+          widgets={
+               'expired_date':forms.DateInput(attrs={'type': 'date'}),
+               'product_name':forms.TextInput(attrs={'placeholder':'Enter Product Name'}),
+               'description':forms.TextInput(attrs={'placeholder':'Enter Product Description'}),
+
+          }

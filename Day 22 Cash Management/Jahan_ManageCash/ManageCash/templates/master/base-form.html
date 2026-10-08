@@ -1,0 +1,18 @@
+{% extends 'master/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+   {{page_title}}         
+{% endblock title %}
+
+   
+        
+{% block content %}
+<h3>{{head_title}}</h3>
+<form method="POST">
+    {{form_data|crispy}}
+  <button type="submit" class="btn btn-primary">{{btn_title}}</button>
+</form>
+            
+{% endblock content %}
+            

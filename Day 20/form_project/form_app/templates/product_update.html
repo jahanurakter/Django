@@ -1,0 +1,18 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    updateproduct
+{% endblock title %}
+    
+
+{% block content %}
+    <h3>Update Product</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{form_data.as_p}}
+        
+        <button type="submit" class="btn btn-success">Update Product</button>
+    </form>
+{% endblock content %}
+    

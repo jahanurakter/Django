@@ -20,9 +20,13 @@ def login_view(req):
                 login(req,user)
                 return redirect('home_view')
     context={
-        'form_data':form_data
+        'form_data':form_data,
+        'form_page':'loginpage',
+        'form_title':'Login Your Account',
+        'form_btn':'Login',
+        
     }
-    return render(req, 'login.html', context)
+    return render(req, 'master/base-from.html', context)
 
 def register_view(req):
     form_data = RegisterForm()
@@ -33,9 +37,12 @@ def register_view(req):
             return redirect('login_view')
 
     context={
-        'form_data':form_data
+        'form_data':form_data,
+        'form_page':'registerpage',
+        'form_title':'Register Your Account',
+        'form_btn':'Register',
     }
-    return render (req, 'register.html',context)
+    return render (req, 'master/base-from.html',context)
 
 def logout_view(req):
     logout(req)
@@ -49,10 +56,13 @@ def category_add(req):
             form_data.save()
             return redirect('category_list')
     context={
-        "form_data":form_data
+        'form_data':form_data,
+        'form_page':'add_category',
+        'form_title':'Category Information',
+        'form_btn':'Add Category',
     }
 
-    return render(req, 'category_add.html',context)
+    return render(req, 'master/base-from.html',context)
 
 def category_list(req):
     category_data=CategoryModel.objects.all()
@@ -70,13 +80,15 @@ def category_update(req,id):
             form_data.save()
             return redirect('category_list')
     context={
-        "form_data":form_data
+        'form_data':form_data,
+        'form_page':'update_category',
+        'form_title':' Update Category Information',
+        'form_btn':'Update Category',
     }
 
-    return render(req, 'category_update.html',context)
+    return render(req, 'master/base-from.html',context)
 
 def category_delete(req, id):
-
     # CategoryModel.objects.get(id=id).delete()
     get_object_or_404(CategoryModel, id=id).delete()
 
@@ -89,15 +101,19 @@ def add_product(req):
         if form_data.is_valid():
             data=form_data.save(commit=False)
             data.total_amount=data.price*data.qty
+            data.created_by=req.user
             data.save()
-            return redirect('category_list')
+            return redirect('product_list')
     context={
-        "form_data":form_data
+        "form_data":form_data,
+        'form_page':'update_category',
+        'form_title':'Add Product Information',
+        'form_btn':'Add Product',
         }
-    return render(req, 'add_product.html',context)
+    return render(req, 'master/base-from.html',context)
 
-def product_list(req):
-    product_data=ProductModel.objects.all()
+def product_list(req): 
+    product_data=ProductModel.objects.filter(created_by = req.user)
     context={
         'product_data':product_data
     }
@@ -106,19 +122,23 @@ def product_list(req):
 def product_update(req, id):
 
     product_data=get_object_or_404(ProductModel, id=id)
-    form_data=ProductForm(instace=product_data)
+    form_data=ProductForm(instance=product_data)
 
     if req.method == "POST":
         form_data=ProductForm(req.POST, instance=product_data)
         if form_data.is_valid():
             data=form_data.save(commit=False)
             data.total_amount=data.price*data.qty
+            data.created_by=req.user
             data.save()
             return redirect('product_list')
-        context={
-            'form_data':form_data
+    context={
+            'form_data':form_data,
+            'form_page':'update_product',
+            'form_title':' Update Product Information',
+            'form_btn':'Update Product',
         }
-    return render(req, 'product_update.html', context)
+    return render(req, 'master/base-from.html', context)
 
 def product_delete(req, id):
     get_object_or_404(ProductModel, id=id).delete()
