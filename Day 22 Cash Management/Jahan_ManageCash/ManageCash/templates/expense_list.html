@@ -5,8 +5,41 @@
     expense_list
 {% endblock title %}
 
-
 {% block content %}
+<a href="{% url 'expense_view' %}"></a>
+<h3 class="text-center">Add Expense Information</h3>
+    <a class="btn btn-success" href="{% url 'expense_view' %}">Add Expense Cash</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Sl No.</th>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for x in form_data %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{x.expense_name}}</td>
+                    <td>{{x.expense_amount}}</td>
+                    <td>{{x.datetime}}</td>
+                    <td>{{x.expense_description}}</td>
+                    <td>
+                        <a href="{% url 'update_expense' x.id %}" class="btn btn-success">Update</a>
+                        <a href="{% url 'delete_expense' x.id %}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+                
+        
+                
+        </tbody>
+    </table>
     
 {% endblock content %}
     

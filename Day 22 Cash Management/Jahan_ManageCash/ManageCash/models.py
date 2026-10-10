@@ -13,7 +13,7 @@ class AddCashModel(models.Model):
         null=True
         )
     source=models.CharField(max_length=150, null=True)
-    cash_datetime=models.DateTimeField(null=True)
+    datetime=models.DateField(auto_now_add=True, null=True)
     cash_amount=models.PositiveIntegerField(null=True)
     cash_description=models.TextField(null=True)
     
@@ -26,7 +26,7 @@ class ExpenseModel(models.Model):
         on_delete=models.CASCADE,
         null=True
         )
-    expense_datetime=models.DateTimeField(null=True)
+    datetime=models.DateField(null=True)
     expense_amount=models.PositiveIntegerField(null=True)
     expense_description=models.TextField(null=True)
 

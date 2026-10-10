@@ -10,9 +10,16 @@
 {% block content %}
 <h3>{{head_title}}</h3>
 <form method="POST">
+  {% csrf_token %}
     {{form_data|crispy}}
   <button type="submit" class="btn btn-primary">{{btn_title}}</button>
 </form>
+
+
+{% if extra_link %}
+  <p><a href="{{extra_link}}">{{extra_text}}</a></p>
+{% endif %}
+  
             
 {% endblock content %}
             
