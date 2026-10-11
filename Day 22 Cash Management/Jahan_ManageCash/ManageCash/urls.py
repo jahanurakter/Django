@@ -14,7 +14,11 @@ urlpatterns = [
     path('cash_delete/<str:id>/', cash_delete, name='cash_delete'),  
 
 
+<<<<<<< HEAD
     path('add_expense/', add_expense, name='add_expense'),
+=======
+    path('expense_view/', expense_view, name='expense_view'),
+>>>>>>> 5249b765fc07e777605fc066e4f9aaf0f4e3e9f5
     path('expense_list/', expense_list, name='expense_list'),
     path('update_expense/<str:id>/', update_expense, name='update_expense'),
     path('delete_expense/<str:id>/', delete_expense, name='delete_expense'),

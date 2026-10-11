@@ -60,11 +60,25 @@ def addcash_view(req):
     if req.method == 'POST':
         form_data=AddCashForm(req.POST)
         if form_data.is_valid(): 
+<<<<<<< HEAD
             data = form_data.save(commit=False)
             data.cash_name = req.user
             data.save()
             return redirect('addcash_list')
 
+=======
+            form_data.instance.user = req.user
+            
+            form_data.save()
+            return redirect('addcash_list', id=req.user.id)
+#form_data = AddCashForm()
+    # if req.method == "POST":
+    #     form_data = AddCashForm(req.POST)
+    #     if form_data.is_valid():
+    #         form_data.instance.user = req.user
+    #         form_data.save()
+    #         return redirect('dashboard_view', id=req.user.id)
+>>>>>>> 5249b765fc07e777605fc066e4f9aaf0f4e3e9f5
     context={
             'form_data':form_data,
             'page_title':'addcash',
@@ -73,9 +87,15 @@ def addcash_view(req):
             
         }
     return render(req, 'master/base-form.html', context)
+<<<<<<< HEAD
 @login_required
 def addcash_list(req):
     form_data = AddCashModel.objects.filter(cash_name=req.user)
+=======
+
+def addcash_list(req):
+    form_data = AddCashModel.objects.all()
+>>>>>>> 5249b765fc07e777605fc066e4f9aaf0f4e3e9f5
     context={
         'form_data':form_data
     }
@@ -87,9 +107,15 @@ def cash_update(req,id):
     if req.method == 'POST':
         form_data=AddCashForm(req.POST, instance=data)
         if form_data.is_valid(): 
+<<<<<<< HEAD
            data=form_data.save(commit=False)
            data.cash_name=req.user
            data.save()
+=======
+           form_data.instance.user = req.user
+            # data.cash_name=req.user
+        form_data.save()
+>>>>>>> 5249b765fc07e777605fc066e4f9aaf0f4e3e9f5
         return redirect('addcash_list')
     context={
             'form_data':form_data,
@@ -106,13 +132,21 @@ def cash_delete(req, id):
     return redirect('addcash_list')
     
 @login_required
+<<<<<<< HEAD
 def add_expense(req):
+=======
+def expense_view(req):
+>>>>>>> 5249b765fc07e777605fc066e4f9aaf0f4e3e9f5
     form_data=ExpenseForm()
     if req.method == 'POST':
         form_data=ExpenseForm(req.POST)
         if form_data.is_valid(): 
             data = form_data.save(commit=False)
+<<<<<<< HEAD
             data.expense_name = req.user
+=======
+            data.expense_name = req.user.username
+>>>>>>> 5249b765fc07e777605fc066e4f9aaf0f4e3e9f5
             data.save()
             return redirect('expense_list')
     context={
@@ -123,15 +157,26 @@ def add_expense(req):
             
         }  
     return render(req, 'master/base-form.html', context)
+<<<<<<< HEAD
 @login_required
 def expense_list(req):
     form_data=ExpenseModel.objects.filter(expense_name=req.user)
     # form_data=ExpenseModel.objects.all()
+=======
+
+def expense_list(req):
+    # form_data=ExpenseModel.objects.filter(expense_name=req.user)
+    form_data=ExpenseModel.objects.all()
+>>>>>>> 5249b765fc07e777605fc066e4f9aaf0f4e3e9f5
     context={
             'form_data':form_data
         }
     return render(req, 'expense_list.html', context)
+<<<<<<< HEAD
 @login_required
+=======
+
+>>>>>>> 5249b765fc07e777605fc066e4f9aaf0f4e3e9f5
 def update_expense(req, id):
     data=get_object_or_404(ExpenseModel, id=id)
     form_data=ExpenseForm(instance=data)
@@ -139,7 +184,11 @@ def update_expense(req, id):
         form_data=ExpenseForm(req.POST, instance=data)
         if form_data.is_valid(): 
             data = form_data.save(commit=False)
+<<<<<<< HEAD
             data.expense_name=req.user
+=======
+            # data.expense_name=req.user
+>>>>>>> 5249b765fc07e777605fc066e4f9aaf0f4e3e9f5
             data.save()
             return redirect('expense_list')
     context={

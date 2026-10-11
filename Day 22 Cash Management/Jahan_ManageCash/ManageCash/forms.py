@@ -4,7 +4,11 @@ from django.contrib.auth.forms import UserCreationForm
 
 class UserForm(UserCreationForm):
     class Meta:
+<<<<<<< HEAD
         model = User
+=======
+        model = UserModel
+>>>>>>> 5249b765fc07e777605fc066e4f9aaf0f4e3e9f5
         fields = ['username','email','password1','password2']
 
 class AddCashForm(forms.ModelForm):
@@ -21,4 +25,8 @@ class ExpenseForm(forms.ModelForm):
 
         widgets = {
             'datetime':forms.DateInput(attrs={'type':'date'})
+<<<<<<< HEAD
         }
+=======
+        }
+>>>>>>> 5249b765fc07e777605fc066e4f9aaf0f4e3e9f5
