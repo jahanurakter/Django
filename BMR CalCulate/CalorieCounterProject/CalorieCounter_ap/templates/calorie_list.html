@@ -1,0 +1,34 @@
+{% extends 'master/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  calorie_list
+{% endblock %}
+
+{% block body %}
+  <h3>Calorie Consumed List</h3>
+  <a class="btn btn-success" href="{% url 'add_consumed_calorie' %}">Add Calorie</a>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Sl No.</th>
+        <th>Item Name</th>
+        <th>Calorie</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for data in consumed_calorie %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ data.item_name }}</td>
+          <td>{{ data.consumed_calorie }} Kcal</td>
+          <td>
+            <a class="btn btn-success" href="{% url 'update_consumed_calorie' data.id %}">Edit</a>
+            <a class="btn btn-danger" href="{% url 'delete_carlorie' data.id %}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

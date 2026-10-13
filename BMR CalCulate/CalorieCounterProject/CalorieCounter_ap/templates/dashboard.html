@@ -1,0 +1,39 @@
+{% extends 'master/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  home
+{% endblock %}
+
+{% block body %}
+  <h3>Welcome {{ request.user.username }}</h3>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <h5 class="card-header">Calorie Consumed</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{ bmr }} kcal</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <h5 class="card-header">Total Calorie</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{ total_consumed_calorie }} kcal</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <h5 class="card-header">Less or More</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{ less_Or_more }} kcal</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

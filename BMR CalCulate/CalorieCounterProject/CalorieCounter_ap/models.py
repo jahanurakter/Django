@@ -7,6 +7,13 @@ class UserProfileModel(models.Model):
         ('Female','Female'),
         ('Male','Male'),
     }
+    user=models.OneToOneField(
+        User,
+            on_delete=models.CASCADE,
+            max_length=100,
+            related_name='user_profile',
+            null=True
+    )
     name=models.CharField(max_length=150,null=True)
     age=models.PositiveIntegerField(null=True)
     gender=models.CharField(choices=GENDER, max_length=50, null=True)
@@ -23,6 +30,7 @@ class ConsumedCalorieModel(models.Model):
         User,
         on_delete=models.CASCADE,
         max_length=100,
+        related_name='calorie_consumed',
         null=True
     )
     item_name=models.CharField(max_length=150, null=True)

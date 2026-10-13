@@ -1,3 +1,4 @@
 from django.contrib import admin
+from CalorieCounter_ap.models import *
 
-# Register your models here.
+admin.site.register([UserProfileModel,ConsumedCalorieModel])
