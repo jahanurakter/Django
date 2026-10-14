@@ -1,0 +1,28 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    addsupplier
+{% endblock title %}
+
+
+{% block body %}
+    <h3>Add Supplier</h3>
+    <form  method="POST">
+        {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Supplier Name</label>
+    <input type="text" name="supplier_name" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Contact Number</label>
+    <input type="text" name="contact_number" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Address</label>
+    <textarea name="address" class="form-control"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Add Supplier</button>
+</form>
+{% endblock body %}
+    

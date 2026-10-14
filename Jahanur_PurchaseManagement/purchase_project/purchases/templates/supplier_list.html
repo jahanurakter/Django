@@ -1,0 +1,39 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    supplier_list
+{% endblock title %}
+
+
+{% block body %}
+<a class="btn btn-success" href="{% url 'add_supplier' %}">Add Supplier</a>
+<h3>Supplier List</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr><th>Sl No</th>
+                <th>Supplier Name</th>
+                <th>Contact Number</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for data in supplier_data %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{data.supplier_name}}</td>
+                    <td>{{data.contact_number}}</td>
+                    <td>{{data.address}}</td>
+                    <td>
+                        <a class="btn btn-success" href="{% url 'update_supplier' data.id %}">Edit</a>
+                        <a class="btn btn-danger" href="{% url 'delete_supplier' data.id %}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+                
+        </tbody>
+    </table>
+{% endblock body %}
+    

@@ -1,0 +1,12 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    dashboard
+{% endblock title %}
+    
+
+{% block body %}
+    <h3 class="text-center">Welcome! {{request.user.username}}</h3>
+{% endblock body %}
+    

@@ -1,0 +1,16 @@
+{% extends 'master/base.html' %}
+
+{% block title %}
+    profile
+{% endblock title %}
+    
+
+{% block body %}
+    <h3 class="text-center">Welcome! {{request.user.username}}</h3>
+    <p class="fs-5">Username: {{request.user.user_profile.full_name}}</p>
+    <p class="fs-5">Phone: {{request.user.user_profile.phone}}</p>
+    <p class="fs-5">address: {{request.user.user_profile.address}}</p>
+    <p class="fs-5">Picture: {{request.user.user_profile.picture}}</p>
+    <a class="btn btn-success" href="{% url 'update_profile' %}">Update</a>
+{% endblock body %}
+    
