@@ -15,6 +15,7 @@ def product_view(req):
             'message':"Data get Successfully",
             'data':serializers.data
         })
+
     if req.method == "POST":
         serializers=ProductSerializer(data=req.data)
         if serializers.is_valid():
@@ -45,14 +46,14 @@ def product_details(req,id):
             }, status=status.HTTP_200_OK)
 
     if req.method =="DELETE":
-        try:
-            data=ProductModel.objects.get(id=id)
-        except:
-            return Response({
-                'success': False,
-                'message':"Product Data NotFourd",
-                'data':[]
-            }, status=status.HTTP_404_NOT_FOUND)   
+        # try:
+        #     data=ProductModel.objects.get(id=id)
+        # except:
+        #     return Response({
+        #         'success': False,                                @ata dite hbe na         
+        #         'message':"Product Data NotFourd",
+        #         'data':[]
+        #     }, status=status.HTTP_404_NOT_FOUND)   
 
         data.delete()     
         return Response({
@@ -60,4 +61,20 @@ def product_details(req,id):
                 'message':" Product Deleted Successfully",
                 'data':[]
             }, status=status.HTTP_200_OK)
-       
+
+    if req.method == "PUT":
+        serializers_data=ProductSerializer(data, data=req. data)
+        if serializers_data.is_valid():
+            serializers_data.save()
+            return Response({
+                            'success': True,
+                            'message':" Product Update Successfully",
+                            'data':serializers_data.data
+                        }, status=status.HTTP_201_CREATED)
+        else:
+            return Response({
+            'success': False,
+            'message':serializers_data.errors
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        
